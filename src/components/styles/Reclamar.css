@@ -1,0 +1,102 @@
+:root {
+    font-family: 'Poppins', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    --primary-color: #FF5722;
+    --secondary-color: #FF9800;
+    --background-dark: #242424;
+    --background-light: #f4f4f9;
+    --text-dark: rgba(255, 255, 255, 0.87);
+    --text-light: #213547;
+  
+    color-scheme: light dark;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .reclamar-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 400px;
+    margin: auto; /* Centrar el contenedor */
+  }
+  
+  .reclamar-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px; /* Espacio entre el grupo de inputs */
+  }
+  
+  button.reclamar-btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.25s, border-color 0.25s;
+  }
+  
+  button.reclamar-btn:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px; /* Espacio superior para la tabla */
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      background-color: var(--background-light);
+      color: var(--text-light);
+    }
+  
+    button.reclamar-btn {
+      background-color: var(--primary-color);
+    }
+  
+    button.reclamar-btn:hover {
+      background-color: var(--secondary-color);
+    }
+  }
+  .regresar-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .regresar-btn:hover {
+    background-color: #d32f2f;
+  }
+  
