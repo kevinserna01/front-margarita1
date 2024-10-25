@@ -10,7 +10,7 @@ function Registro() {
   const [ciudad, setCiudad] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [tipoMensaje, setTipoMensaje] = useState(''); // Estado para diferenciar éxito/error
+  const [tipoMensaje, setTipoMensaje] = useState('');
 
   const handleRegresar = () => {
     window.location.href = '/'; 
@@ -30,6 +30,11 @@ function Registro() {
     };
 
     try {
+      // Validación adicional de correo
+      if (!/\S+@\S+\.\S+/.test(correo)) {
+        throw new Error("Correo no es válido");
+      }
+
       const response = await fetch('http://localhost:4000/v1/margarita/register', {
         method: 'POST',
         headers: {
@@ -44,14 +49,21 @@ function Registro() {
       }
 
       const data = await response.json();
-      setMensaje("🎉 ¡Registro exitoso! 🎉"); // Mensaje de éxito
-      setTipoMensaje('exito'); // Tipo de mensaje para estilos
-      // Aquí puedes limpiar el formulario si es necesario
+      setMensaje("🎉 ¡Registro exitoso! 🎉");
+      setTipoMensaje('exito');
+      // Limpiar el formulario tras el registro exitoso
+      setNombre('');
+      setFecha('');
+      setCedula('');
+      setCorreo('');
+      setCelular('');
+      setCiudad('');
+      setContraseña('');
 
     } catch (error) {
       console.error("Error:", error);
-      setMensaje("❌ Error en el registro, intenta de nuevo ❌"); // Mensaje de error
-      setTipoMensaje('error'); // Tipo de mensaje para estilos
+      setMensaje(error.message || "❌ Error en el registro, intenta de nuevo ❌");
+      setTipoMensaje('error');
     }
   };
 

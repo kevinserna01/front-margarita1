@@ -86,7 +86,8 @@ input:focus {
   border-color: var(--secondary-color);
 }
 
-.login-container {
+/* Estilos para el contenedor de reclamos */
+.reclamar-container {
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -96,14 +97,39 @@ input:focus {
   position: relative;
 }
 
-.login-container h2 {
+.reclamar-container h2 {
   color: var(--primary-color);
   margin-bottom: 20px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
+.regresar-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.regresar-btn:hover {
+  background-color: #d32f2f;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px; /* Espacio superior para la tabla */
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid var(--primary-color);
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {

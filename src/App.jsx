@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const App = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); // Mantener el correo del usuario
   const [password, setPassword] = useState('');
   const [showRegister, setShowRegister] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [logs, setLogs] = useState([]); // Guardar el historial de reclamos
+  const [logs, setLogs] = useState([]);
 
   const handleReclamo = (nuevoLog) => {
     setLogs([...logs, nuevoLog]);
@@ -33,6 +33,8 @@ const App = () => {
       console.log("Respuesta del servidor:", data);
       if (data.status === "Bienvenido") {
         setIsLoggedIn(true);
+        // Guardar el correo del usuario en el estado al iniciar sesión
+        setEmail(data.correo); // Asegúrate de que el backend devuelve el correo
       } else {
         alert("Credenciales incorrectas");
       }
@@ -83,7 +85,7 @@ const App = () => {
           <Route 
             path="/reclamar" 
             element={isLoggedIn ? (
-              <Reclamar logs={logs} onReclamo={handleReclamo} />
+              <Reclamar correo={email} logs={logs} onReclamo={handleReclamo} /> // Pasar el correo aquí
             ) : (
               <Navigate to="/" />
             )} 
